@@ -22,3 +22,30 @@ a {
 .incorrect {
     background: red;
 }
+
+.tally {
+    width: 30px;
+    height: 15px;
+    margin-right: 2px;
+    text-align: center;
+}
+
+.tally-noans {
+    background: lightgray;
+}
+
+.tally-correct {
+    background: repeating-linear-gradient(
+            to right,
+            green 0 5px,
+            lightgreen 5px 10px
+    );
+}
+
+.tally-wrong {
+    background: repeating-linear-gradient(
+        to bottom,
+        red 0 5px,
+        pink 5px 10px
+    );
+}

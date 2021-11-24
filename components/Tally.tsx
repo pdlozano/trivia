@@ -9,17 +9,30 @@ function Tally(props: TallyData): JSX.Element {
     return (
         <div>
             <h1>Tally</h1>
-            {items.map((item, index) => {
-                if (props.data[index] !== undefined) {
+
+            <div
+                style={{
+                    display: "flex",
+                }}
+            >
+                {items.map((item, index) => {
                     return (
-                        <span key={index}>
-                            {props.data[index] ? "Correct" : "Incorrect"}
-                        </span>
+                        <div
+                            key={index}
+                            className={
+                                "tally " +
+                                (props.data[index] === undefined
+                                    ? "tally-noans"
+                                    : props.data[index]
+                                    ? "tally-correct"
+                                    : "tally-wrong")
+                            }
+                        >
+                            {""}
+                        </div>
                     );
-                } else {
-                    return <span key={index}>None</span>;
-                }
-            })}
+                })}
+            </div>
         </div>
     );
 }
