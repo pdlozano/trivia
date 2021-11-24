@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { Question as Q, Questions } from "../modules/questions";
 import { useEffect, useState } from "react";
-import Question from "../components/Question";
+import { default as QComponent } from "../components/Questions";
 
 const Home: NextPage = () => {
     const [questions, setQuestions] = useState<Q[]>([]);
@@ -20,9 +20,11 @@ const Home: NextPage = () => {
 
     return (
         <div>
-            {questions.map((question, index) => {
-                return <Question key={index} {...question} />;
-            })}
+            {questions.length !== 0 ? (
+                <QComponent items={questions} />
+            ) : (
+                <p>Wait</p>
+            )}
         </div>
     );
 };

@@ -12,6 +12,10 @@ function Question(props: QuestionData): JSX.Element {
         setQuestions(_.shuffle(data));
     }, [props.correct_answer, props.wrong_answers]);
 
+    useEffect(() => {
+        setCorrect(undefined);
+    }, [props]);
+
     return (
         <div
             className={
