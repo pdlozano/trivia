@@ -19,7 +19,7 @@ class Questions {
     constructor(data: QuestionProp) {
         const BASE = "https://opentdb.com/api.php";
 
-        this.uri = `${BASE}?amount=${data.amount}&category=${data.category}&difficulty=${data.difficulty}`;
+        this.uri = `${BASE}?amount=${data.amount}&category=${data.category}&difficulty=${data.difficulty}&encode=url3986`;
 
         if (data.session) {
             fetch("https://opentdb.com/api_token.php?command=request")
@@ -41,14 +41,16 @@ class Questions {
                                 ? "True or False"
                                 : "Multiple Choice",
                         difficulty: item.difficulty,
-                        question: item.question,
-                        correct_answer: item.correct_answer,
-                        wrong_answers: item.incorrect_answers,
+                        question: decodeURIComponent(item.question),
+                        correct_answer: decodeURIComponent(item.correct_answer),
+                        wrong_answers: item.incorrect_answers.map((i) =>
+                            decodeURIComponent(i)
+                        ),
                     };
                 });
             });
     }
 }
 
-export {Questions};
-export type {Question};
+export { Questions };
+export type { Question };
