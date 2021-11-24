@@ -9,6 +9,7 @@ type QuestionsData = {
 function Questions(props: QuestionsData): JSX.Element {
     const [index, setIndex] = useState<number>(0);
     const [max, setMax] = useState<boolean>(false);
+    const [tally, setTally] = useState<number>(0);
 
     useEffect(() => {
         setMax(index === props.items.length - 1);
@@ -17,7 +18,19 @@ function Questions(props: QuestionsData): JSX.Element {
     return (
         <div>
             <h1>Questions</h1>
-            {!max ? <Question {...props.items[index]} /> : <p>Done!</p>}
+            <p>{tally} Questions Correct</p>
+            {!max ? (
+                <Question
+                    {...props.items[index]}
+                    func={(boolean) => {
+                        if (boolean) {
+                            setTally(tally + 1);
+                        }
+                    }}
+                />
+            ) : (
+                <p>Done!</p>
+            )}
             <button
                 onClick={(event) => {
                     event.preventDefault();

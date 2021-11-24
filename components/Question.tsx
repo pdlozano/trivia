@@ -1,7 +1,11 @@
-import type { Question as QuestionData } from "../modules/questions";
+import type { Question as PrevQuestionData } from "../modules/questions";
 import { useEffect, useState } from "react";
 
 const _ = require("lodash");
+
+type QuestionData = PrevQuestionData & {
+    func: (correct: boolean) => void;
+};
 
 function Question(props: QuestionData): JSX.Element {
     const [questions, setQuestions] = useState<string[]>([]);
@@ -14,7 +18,7 @@ function Question(props: QuestionData): JSX.Element {
 
     useEffect(() => {
         setCorrect(undefined);
-    }, [props]);
+    }, [props.correct_answer]);
 
     return (
         <div
@@ -34,6 +38,7 @@ function Question(props: QuestionData): JSX.Element {
                     onClick={(event) => {
                         event.preventDefault();
                         setCorrect(question === props.correct_answer);
+                        props.func(question === props.correct_answer);
                     }}
                     disabled={correct !== undefined}
                 >
