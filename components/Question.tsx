@@ -32,7 +32,7 @@ function Question(props: QuestionData): JSX.Element {
         >
             <h1>{props.question}</h1>
 
-            {questions.map((question) => (
+            {questions.map((question, i) => (
                 <button
                     key={question}
                     onClick={(event) => {
@@ -40,6 +40,7 @@ function Question(props: QuestionData): JSX.Element {
                         setCorrect(question === props.correct_answer);
                         props.func(question === props.correct_answer);
                     }}
+                    id={"button-" + i}
                     disabled={correct !== undefined}
                 >
                     {question}
