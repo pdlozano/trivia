@@ -23,6 +23,10 @@ a {
     background: red;
 }
 
+.pressed {
+    background: blue;
+}
+
 .tally {
     width: 30px;
     height: 15px;

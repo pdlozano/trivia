@@ -10,6 +10,7 @@ type QuestionData = PrevQuestionData & {
 function Question(props: QuestionData): JSX.Element {
     const [questions, setQuestions] = useState<string[]>([]);
     const [correct, setCorrect] = useState<boolean | undefined>(undefined);
+    // TODO: Show a way to see which button you pressed
 
     useEffect(() => {
         const data = [props.correct_answer, ...props.wrong_answers];

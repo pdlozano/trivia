@@ -13,7 +13,6 @@ function Questions(props: QuestionsData): JSX.Element {
 
     return (
         <div>
-            <h1>Questions</h1>
             <Tally data={tally} length={props.items.length} />
             {!(tally.length === props.items.length) ? (
                 // TODO: This component immediately disappears after the last question
@@ -28,7 +27,10 @@ function Questions(props: QuestionsData): JSX.Element {
                     }}
                 />
             ) : (
-                <p>Done!</p>
+                <p>
+                    Done! You got {tally.reduce((a, b) => a + (b ? 1 : 0), 0)}{" "}
+                    items correct
+                </p>
             )}
         </div>
     );
