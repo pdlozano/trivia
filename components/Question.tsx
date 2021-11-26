@@ -9,13 +9,12 @@ type QuestionData = PrevQuestionData & {
 };
 
 function Question(props: QuestionData): JSX.Element {
-    const [questions, setQuestions] = useState<string[]>([]);
+    const [answers, setAnswers] = useState<string[]>([]);
     const [correct, setCorrect] = useState<boolean | undefined>(undefined);
-    // TODO: Show a way to see which button you pressed
 
     useEffect(() => {
         const data = [props.correct_answer, ...props.wrong_answers];
-        setQuestions(_.shuffle(data));
+        setAnswers(_.shuffle(data));
     }, [props.correct_answer, props.wrong_answers]);
 
     useEffect(() => {
@@ -36,17 +35,20 @@ function Question(props: QuestionData): JSX.Element {
             <h1>{props.question}</h1>
 
             <div className="flex justify-evenly my-5">
-                {questions.map((question, i) => (
+                {answers.map((answer, i) => (
                     <Answer
-                        key={question}
+                        key={answer}
                         click={() => {
-                            setCorrect(question === props.correct_answer);
-                            props.func(question === props.correct_answer);
+                            setCorrect(answer === props.correct_answer);
+                            setTimeout(() => {
+                                props.func(answer === props.correct_answer);
+                            }, 2000);
                         }}
-                        length={questions.length}
+                        length={answers.length}
                         buttonNumber={i}
                         disabled={correct !== undefined}
-                        text={question}
+                        text={answer}
+                        question={props.question}
                     />
                 ))}
             </div>

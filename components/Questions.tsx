@@ -15,15 +15,11 @@ function Questions(props: QuestionsData): JSX.Element {
         <div>
             <Tally data={tally} length={props.items.length} />
             {!(tally.length === props.items.length) ? (
-                // TODO: This component immediately disappears after the last question
                 <Question
                     {...props.items[index]}
                     func={(boolean) => {
                         setTally([...tally, boolean]);
-
-                        setTimeout(() => {
-                            setIndex(index + 1);
-                        }, 2000);
+                        setIndex(index + 1);
                     }}
                 />
             ) : (

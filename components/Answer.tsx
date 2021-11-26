@@ -6,6 +6,7 @@ type AnswerData = {
     buttonNumber: number;
     disabled: boolean;
     text: string;
+    question: string;
 };
 
 function Answer(props: AnswerData): JSX.Element {
@@ -13,7 +14,7 @@ function Answer(props: AnswerData): JSX.Element {
 
     useEffect(() => {
         setClicked(false);
-    }, [props.text]);
+    }, [props.question]);
 
     return (
         <button
