@@ -43,7 +43,7 @@ class Questions {
                         difficulty: item.difficulty,
                         question: decodeURIComponent(item.question),
                         correct_answer: decodeURIComponent(item.correct_answer),
-                        wrong_answers: item.incorrect_answers.map((i) =>
+                        wrong_answers: item.incorrect_answers.map((i: string) =>
                             decodeURIComponent(i)
                         ),
                     };
