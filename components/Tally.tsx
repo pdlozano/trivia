@@ -8,13 +8,7 @@ function Tally(props: TallyData): JSX.Element {
 
     return (
         <div>
-            <h1>Tally</h1>
-
-            <div
-                style={{
-                    display: "flex",
-                }}
-            >
+            <div className="flex w-100 justify-center">
                 {items.map((item, index) => {
                     return (
                         <div

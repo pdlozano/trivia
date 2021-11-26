@@ -8,9 +8,9 @@
     }
 
     button {
-        @apply border-dashed;
-        @apply p-3;
-        @apply m-2;
+        @apply border-solid;
+        @apply border-2;
+        @apply px-3 py-2;
     }
 }
 
@@ -24,7 +24,7 @@
     }
 
     .tally {
-        @apply w-5;
+        @apply w-10;
         @apply h-3;
         @apply mr-1;
     }

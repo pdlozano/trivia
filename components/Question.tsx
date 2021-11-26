@@ -1,5 +1,6 @@
 import type { Question as PrevQuestionData } from "../modules/questions";
 import { useEffect, useState } from "react";
+import Answer from "./Answer";
 
 const _ = require("lodash");
 
@@ -24,29 +25,31 @@ function Question(props: QuestionData): JSX.Element {
     return (
         <div
             className={
-                correct === undefined
+                "p-10 mt-10 " +
+                (correct === undefined
                     ? "none"
                     : correct
                     ? "correct"
-                    : "incorrect"
+                    : "incorrect")
             }
         >
             <h1>{props.question}</h1>
 
-            {questions.map((question, i) => (
-                <button
-                    key={question}
-                    onClick={(event) => {
-                        event.preventDefault();
-                        setCorrect(question === props.correct_answer);
-                        props.func(question === props.correct_answer);
-                    }}
-                    id={"button-" + i}
-                    disabled={correct !== undefined}
-                >
-                    {question}
-                </button>
-            ))}
+            <div className="flex justify-evenly my-5">
+                {questions.map((question, i) => (
+                    <Answer
+                        key={question}
+                        click={() => {
+                            setCorrect(question === props.correct_answer);
+                            props.func(question === props.correct_answer);
+                        }}
+                        length={questions.length}
+                        buttonNumber={i}
+                        disabled={correct !== undefined}
+                        text={question}
+                    />
+                ))}
+            </div>
         </div>
     );
 }
