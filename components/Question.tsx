@@ -34,7 +34,7 @@ function Question(props: QuestionData): JSX.Element {
         >
             <h2 className="text-center font-bold">{props.question}</h2>
 
-            <div className="flex justify-evenly my-5">
+            <div className="flex flex-col md:flex-row justify-evenly my-5">
                 {answers.map((answer, i) => (
                     <Answer
                         key={answer}
@@ -53,6 +53,10 @@ function Question(props: QuestionData): JSX.Element {
                     />
                 ))}
             </div>
+
+            <p className="text-center italic none md:block">
+                The text below the answer are keyboard shortcuts.
+            </p>
         </div>
     );
 }

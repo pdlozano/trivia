@@ -2,6 +2,7 @@ import type { Question as QuestionData } from "../modules/questions";
 import Question from "./Question";
 import { useState } from "react";
 import Tally from "./Tally";
+import Link from "next/link";
 
 type QuestionsData = {
     items: Array<QuestionData>;
@@ -23,10 +24,16 @@ function Questions(props: QuestionsData): JSX.Element {
                     }}
                 />
             ) : (
-                <p>
-                    Done! You got {tally.reduce((a, b) => a + (b ? 1 : 0), 0)}{" "}
-                    items correct
-                </p>
+                <div className="py-8 text-center">
+                    <p>
+                        Done! You got{" "}
+                        {tally.reduce((a, b) => a + (b ? 1 : 0), 0)} items
+                        correct
+                    </p>
+                    <p>
+                        <Link href="/">One More Round</Link>
+                    </p>
+                </div>
             )}
         </div>
     );

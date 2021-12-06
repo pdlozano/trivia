@@ -5,17 +5,38 @@
 @layer base {
     h1 {
         @apply text-xl;
+        @apply font-header;
     }
     
     h2 {
         @apply text-lg;
+        @apply font-header;
         @apply font-bold;
+        @apply pt-7;
+    }
+
+    a {
+        @apply text-blue-700;
+        @apply hover:text-blue-800;
+        @apply hover:underline;
+    }
+
+    p {
+        @apply font-body;
+        @apply text-lg;
     }
 
     button {
         @apply border-solid;
         @apply border-2;
-        @apply px-3 py-2;
+        @apply border-blue-600;
+        @apply px-3;
+        @apply py-2;
+        @apply mx-2;
+        @apply my-2;
+        @apply font-body;
+        @apply text-lg;
+        @apply hover:bg-blue-400;
     }
 }
 
@@ -24,7 +45,7 @@
         @apply bg-gray-200;
         @apply border-2;
         @apply border-gray-500;
-        @apply font-mono;
+        @apply font-body;
         @apply text-center;
         @apply rounded-sm;
         @apply inline-block;
@@ -32,6 +53,10 @@
         @apply w-7;
         @apply mx-1;
         @apply text-black;
+    }
+
+    .chosen {
+        @apply bg-blue-400;
     }
 
     .correct {
@@ -43,7 +68,7 @@
     }
 
     .tally {
-        @apply w-10;
+        @apply w-1/12;
         @apply h-3;
         @apply mr-1;
     }

@@ -5,6 +5,10 @@ module.exports = {
     ],
     darkMode: "media",
     theme: {
+        fontFamily: {
+            header: ['"Heebo"', "sans-serif"],
+            body: ['"Ubuntu Mono"', "monospace"],
+        },
         extend: {},
     },
     variants: {

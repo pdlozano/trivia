@@ -20,7 +20,7 @@ function Answer(props: AnswerData): JSX.Element {
     return (
         <button
             className={
-                "font-bold border-black mx-2 uppercase w-1/" +
+                "font-bold border-black my-2 md:mx-2 uppercase w-full md:w-1/" +
                 props.length +
                 (clicked ? " bg-black text-white" : "")
             }
@@ -33,7 +33,7 @@ function Answer(props: AnswerData): JSX.Element {
             disabled={props.disabled}
         >
             <p>{props.text}</p>
-            <p>
+            <p className="hidden md:block">
                 <span className="shortcut">{1 + props.item}</span>
                 <span className="shortcut">
                     {7 + props.item === 10 ? 0 : 7 + props.item}
