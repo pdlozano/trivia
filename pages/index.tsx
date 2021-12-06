@@ -29,6 +29,8 @@ const Home: NextPage = () => {
 
     return (
         <div>
+            <h1>Trivia App</h1>
+
             {!start ? (
                 <div>
                     <h2>Difficulty</h2>

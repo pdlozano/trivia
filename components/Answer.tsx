@@ -7,6 +7,7 @@ type AnswerData = {
     disabled: boolean;
     text: string;
     question: string;
+    item: number;
 };
 
 function Answer(props: AnswerData): JSX.Element {
@@ -31,7 +32,13 @@ function Answer(props: AnswerData): JSX.Element {
             id={"button-" + props.buttonNumber}
             disabled={props.disabled}
         >
-            {props.text}
+            <p>{props.text}</p>
+            <p>
+                <span className="shortcut">{1 + props.item}</span>
+                <span className="shortcut">
+                    {7 + props.item === 10 ? 0 : 7 + props.item}
+                </span>
+            </p>
         </button>
     );
 }

@@ -8,7 +8,7 @@
     }
     
     h2 {
-        @apply text-l;
+        @apply text-lg;
         @apply font-bold;
     }
 
@@ -20,6 +20,20 @@
 }
 
 @layer components {
+    .shortcut {
+        @apply bg-gray-200;
+        @apply border-2;
+        @apply border-gray-500;
+        @apply font-mono;
+        @apply text-center;
+        @apply rounded-sm;
+        @apply inline-block;
+        @apply h-7;
+        @apply w-7;
+        @apply mx-1;
+        @apply text-black;
+    }
+
     .correct {
         @apply bg-green-700;
     }

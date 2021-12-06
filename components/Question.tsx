@@ -32,7 +32,7 @@ function Question(props: QuestionData): JSX.Element {
                     : "incorrect")
             }
         >
-            <h1>{props.question}</h1>
+            <h2 className="text-center font-bold">{props.question}</h2>
 
             <div className="flex justify-evenly my-5">
                 {answers.map((answer, i) => (
@@ -49,6 +49,7 @@ function Question(props: QuestionData): JSX.Element {
                         disabled={correct !== undefined}
                         text={answer}
                         question={props.question}
+                        item={i}
                     />
                 ))}
             </div>
