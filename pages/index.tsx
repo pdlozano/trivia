@@ -34,6 +34,11 @@ const Home: NextPage = () => {
         <div>
             <Head>
                 <title>Trivia App</title>
+                <meta charSet="utf-8" />
+                <meta
+                    name="description"
+                    content="Trivia App from the Open Trivia Database API"
+                />
                 <link
                     href="https://fonts.googleapis.com/css2?family=Heebo:wght@800&family=Ubuntu+Mono&display=swap"
                     rel="stylesheet"

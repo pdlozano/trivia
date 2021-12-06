@@ -7,8 +7,11 @@ function Header(): JSX.Element {
                 <Link href="/">Trivia App</Link>
             </h1>
             <p>
-                Powered by the Trivia API. Test your knowledge on a variety of
-                categories.
+                Powered by the{" "}
+                <Link href="https://opentdb.com/">
+                    Open Trivia Database API
+                </Link>
+                . Test your knowledge on a variety of categories.
             </p>
         </header>
     );
