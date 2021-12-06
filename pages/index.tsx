@@ -4,7 +4,6 @@ import { Category } from "../modules/categories";
 import { Difficulty } from "../modules/difficulty";
 import { useEffect, useState } from "react";
 import { default as QComponent } from "../components/Questions";
-import Choices from "../components/Choices";
 
 const Home: NextPage = () => {
     const [questions, setQuestions] = useState<Q[]>([]);
@@ -32,8 +31,47 @@ const Home: NextPage = () => {
         <div>
             {!start ? (
                 <div>
-                    <Choices title="Difficulty" setFunction={setDifficulty} items={Difficulty} default={difficulty} />
-                    <Choices title="Category" setFunction={setCategory} items={Category} default={category} />
+                    <h2>Difficulty</h2>
+                    {Object.keys(Difficulty).map((value) => (
+                        <button
+                            key={value}
+                            className={
+                                Difficulty[value as keyof typeof Difficulty] ===
+                                difficulty
+                                    ? "bg-red-400"
+                                    : ""
+                            }
+                            onClick={(event) => {
+                                event.preventDefault();
+                                setDifficulty(
+                                    Difficulty[value as keyof typeof Difficulty]
+                                );
+                            }}
+                        >
+                            {value}
+                        </button>
+                    ))}
+
+                    <h2>Categories</h2>
+                    {Object.keys(Category).map((value) => (
+                        <button
+                            key={value}
+                            className={
+                                Category[value as keyof typeof Category] ===
+                                category
+                                    ? "bg-red-400"
+                                    : ""
+                            }
+                            onClick={(event) => {
+                                event.preventDefault();
+                                setCategory(
+                                    Category[value as keyof typeof Category]
+                                );
+                            }}
+                        >
+                            {value}
+                        </button>
+                    ))}
 
                     <br />
 
