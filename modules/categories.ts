@@ -1,13 +1,13 @@
 const Category = {
-    GeneralKnowledge: 9,
+    "General Knowledge": 9,
     Books: 10,
     Film: 11,
     Music: 12,
-    MusicalsAndTheatre: 13,
+    "Musicals and Theatre": 13,
     Television: 14,
-    VideoGames: 15,
-    BoardGames: 16,
-    ScienceAndNature: 17,
+    "Video Games": 15,
+    "Board Games": 16,
+    "Science and Nature": 17,
     Computers: 18,
     Mathematics: 19,
     Mythology: 20,
@@ -21,8 +21,8 @@ const Category = {
     Vehicles: 28,
     Comics: 29,
     Gadgets: 30,
-    AnimeAndManga: 31,
-    CartoonAndAnimations: 32,
+    "Anime and Manga": 31,
+    "Cartoon and Animations": 32,
 } as const;
 
 type Category = typeof Category[keyof typeof Category];

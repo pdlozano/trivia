@@ -1,10 +1,7 @@
 import type { NextPage } from "next";
-import {
-    Category,
-    Difficulty,
-    Question as Q,
-    Questions,
-} from "../modules/questions";
+import { Question as Q, Questions } from "../modules/questions";
+import { Category } from "../modules/categories";
+import { Difficulty } from "../modules/difficulty";
 import { useEffect, useState } from "react";
 import { default as QComponent } from "../components/Questions";
 
@@ -13,7 +10,7 @@ const Home: NextPage = () => {
     const [start, setStart] = useState<boolean>(false);
     const [difficulty, setDifficulty] = useState<Difficulty>(Difficulty.Easy);
     const [category, setCategory] = useState<Category>(
-        Category.GeneralKnowledge
+        Category["General Knowledge"]
     );
 
     useEffect(() => {
@@ -23,13 +20,12 @@ const Home: NextPage = () => {
                 category: category,
                 difficulty: difficulty,
             });
-            console.log(category, difficulty);
 
             api.getQuestions().then((res) => {
                 setQuestions(res);
             });
         }
-    }, [start]);
+    }, [start, category, difficulty]);
 
     return (
         <div>
@@ -40,14 +36,16 @@ const Home: NextPage = () => {
                         <button
                             key={value}
                             className={
-                                Difficulty[value] === difficulty
+                                Difficulty[value as keyof typeof Difficulty] ===
+                                difficulty
                                     ? "bg-red-400"
                                     : ""
                             }
                             onClick={(event) => {
                                 event.preventDefault();
-                                console.log(Difficulty[value]);
-                                setDifficulty(Difficulty[value]);
+                                setDifficulty(
+                                    Difficulty[value as keyof typeof Difficulty]
+                                );
                             }}
                         >
                             {value}
@@ -59,17 +57,23 @@ const Home: NextPage = () => {
                         <button
                             key={value}
                             className={
-                                Category[value] === category ? "bg-red-400" : ""
+                                Category[value as keyof typeof Category] ===
+                                category
+                                    ? "bg-red-400"
+                                    : ""
                             }
                             onClick={(event) => {
                                 event.preventDefault();
-                                console.log(Category[value]);
-                                setCategory(Category[value]);
+                                setCategory(
+                                    Category[value as keyof typeof Category]
+                                );
                             }}
                         >
                             {value}
                         </button>
                     ))}
+
+                    <br />
 
                     <button
                         onClick={(event) => {

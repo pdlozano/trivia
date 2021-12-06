@@ -1,10 +1,5 @@
 import type { Category } from "./categories";
-
-const enum Difficulty {
-    Easy = "easy",
-    Medium = "medium",
-    Hard = "hard",
-}
+import type { Difficulty } from "./difficulty";
 
 type QuestionProp = {
     amount: number;
@@ -60,5 +55,5 @@ class Questions {
     }
 }
 
-export { Questions, Difficulty };
+export { Questions };
 export type { Question };
