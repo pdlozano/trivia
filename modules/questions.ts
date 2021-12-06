@@ -1,13 +1,46 @@
+const enum Category {
+    GeneralKnowledge = 9,
+    Books = 10,
+    Film = 11,
+    Music = 12,
+    MusicalsAndTheatre = 13,
+    Television = 14,
+    VideoGames = 15,
+    BoardGames = 16,
+    ScienceAndNature = 17,
+    Computers = 18,
+    Mathematics = 19,
+    Mythology = 20,
+    Sports = 21,
+    Geography = 22,
+    History = 23,
+    Politics = 24,
+    Art = 25,
+    Celebrities = 26,
+    Animals = 27,
+    Vehicles = 28,
+    Comics = 29,
+    Gadgets = 30,
+    AnimeAndManga = 31,
+    CartoonAndAnimations = 32,
+}
+
+const enum Difficulty {
+    Easy = "easy",
+    Medium = "medium",
+    Hard = "hard",
+}
+
 type QuestionProp = {
     amount: number;
-    category: string;
-    difficulty: string;
+    category: Category;
+    difficulty: Difficulty;
     session?: boolean;
 };
 
 type Question = {
     type: "Multiple Choice" | "True or False";
-    difficulty: "easy" | "medium" | "hard";
+    difficulty: Difficulty;
     question: string;
     correct_answer: string;
     wrong_answers: string[];
@@ -52,5 +85,5 @@ class Questions {
     }
 }
 
-export { Questions };
+export { Questions, Category, Difficulty };
 export type { Question };

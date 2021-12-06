@@ -19,7 +19,7 @@ function Question(props: QuestionData): JSX.Element {
 
     useEffect(() => {
         setCorrect(undefined);
-    }, [props.correct_answer]);
+    }, [props.correct_answer, props.question]);
 
     return (
         <div
