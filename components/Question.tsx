@@ -54,7 +54,7 @@ function Question(props: QuestionData): JSX.Element {
                 ))}
             </div>
 
-            <p className="text-center italic none md:block">
+            <p className="text-center italic hidden md:block">
                 The text below the answer are keyboard shortcuts.
             </p>
         </div>

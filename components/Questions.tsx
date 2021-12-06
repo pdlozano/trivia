@@ -31,7 +31,9 @@ function Questions(props: QuestionsData): JSX.Element {
                         correct
                     </p>
                     <p>
-                        <Link href="/">One More Round</Link>
+                        <Link href="/" prefetch={false}>
+                            One More Round
+                        </Link>
                     </p>
                 </div>
             )}
