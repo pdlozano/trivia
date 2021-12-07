@@ -19,10 +19,9 @@ const Home: NextPage = () => {
     useEffect(() => {
         if (start) {
             const api = new Questions({
-                amount: 10,
+                amount: 12,
                 category: category,
                 difficulty: difficulty,
-                session: true,
             });
 
             api.getQuestions().then((res) => {
@@ -106,11 +105,13 @@ const Home: NextPage = () => {
                         </button>
                     </div>
                 ) : questions.length !== 0 ? (
-                    <QComponent items={questions} func={() => {
-                       api.getQuestions().then((res) => {
-                           setQuestions(res);
-                       });
-                    }} />
+                    <QComponent
+                        items={questions}
+                        func={() => {
+                            setStart(false);
+                            setQuestions([]);
+                        }}
+                    />
                 ) : (
                     <Wait />
                 )}
