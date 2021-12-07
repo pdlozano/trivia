@@ -6,6 +6,7 @@ import Link from "next/link";
 
 type QuestionsData = {
     items: Array<QuestionData>;
+    func: () => void;
 };
 
 function Questions(props: QuestionsData): JSX.Element {
@@ -31,9 +32,9 @@ function Questions(props: QuestionsData): JSX.Element {
                         correct
                     </p>
                     <p>
-                        <Link href="/" prefetch={false}>
+                        <span className="link-like" onClick={() => props.func()}>
                             One More Round
-                        </Link>
+                        </span>
                     </p>
                 </div>
             )}

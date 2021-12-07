@@ -22,6 +22,7 @@ const Home: NextPage = () => {
                 amount: 10,
                 category: category,
                 difficulty: difficulty,
+                session: true,
             });
 
             api.getQuestions().then((res) => {
@@ -105,7 +106,11 @@ const Home: NextPage = () => {
                         </button>
                     </div>
                 ) : questions.length !== 0 ? (
-                    <QComponent items={questions} />
+                    <QComponent items={questions} func={() => {
+                       api.getQuestions().then((res) => {
+                           setQuestions(res);
+                       });
+                    }} />
                 ) : (
                     <Wait />
                 )}

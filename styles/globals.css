@@ -41,6 +41,12 @@
 }
 
 @layer components {
+    .link-like {
+        @apply text-blue-700;
+        @apply hover:text-blue-800;
+        @apply hover:underline;
+    }
+    
     .shortcut {
         @apply bg-gray-200;
         @apply border-2;
