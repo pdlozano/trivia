@@ -19,6 +19,7 @@
         @apply text-blue-700;
         @apply hover:text-blue-800;
         @apply hover:underline;
+        @apply focus:outline-black;
     }
 
     p {
@@ -37,6 +38,8 @@
         @apply font-body;
         @apply text-lg;
         @apply hover:bg-blue-400;
+        @apply focus:bg-blue-200;
+        @apply focus:outline-black;
     }
 }
 
